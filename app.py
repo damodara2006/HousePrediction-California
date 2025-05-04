@@ -3,6 +3,11 @@ import pandas as pd
 import numpy as np
 import pickle
 from huggingface_hub import hf_hub_download , login
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+login(token=os.getenv("HF_TOKEN"))
 
 def dataload():
     df = pd.read_csv('housing.csv')
