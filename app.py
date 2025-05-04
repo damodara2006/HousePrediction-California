@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
-from huggingface_hub import hf_hub_download
+from huggingface_hub import hf_hub_download , login
 
 def dataload():
     df = pd.read_csv('housing.csv')
@@ -56,7 +56,8 @@ def main():
     for lab in input_dect:
         if lab in ("total_rooms", "total_bedrooms", "population", "households"):
             input_dect[lab] = np.log(input_dect[lab] + 1)
-
+            
+    login(token="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")
     # ✅ Load model from Hugging Face
     model_path = hf_hub_download(
         repo_id="damodaraprakash/house-price-predictor",
