@@ -3,3 +3,4 @@ pandas
 numpy
 huggingface_hub
 scikit-learn
+python-dotenv
